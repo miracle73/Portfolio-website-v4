@@ -1,5 +1,5 @@
-import React from 'react';
-import { Calendar, MapPin, Building, Award, Zap, TrendingUp, Users, Code } from 'lucide-react';
+
+import { Calendar, MapPin, Building, Award, Zap, TrendingUp, Code } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [

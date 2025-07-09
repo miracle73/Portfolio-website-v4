@@ -1,94 +1,114 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, MessageCircle, Zap } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Send, Github, Twitter, Zap } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    setIsSubmitting(false);
-    
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(
+        `Portfolio Contact: ${formData.subject}`
+      );
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:nwadiatomiracle@yahoo.com?subject=${subject}&body=${body}`;
+
+      // Open default email client
+      window.location.href = mailtoLink;
+
+      // Reset form after short delay
+      setTimeout(() => {
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setIsSubmitting(false);
+      }, 1000);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
-      gradient: "from-red-500 to-pink-500"
+      value: "nwadiaromiraclechukwuma@gmail.com",
+      href: "mailto:nwadiaromiraclechukwuma@gmail.com",
+      gradient: "from-red-500 to-pink-500",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-      gradient: "from-green-500 to-teal-500"
+      value: "+234 812 644 2953",
+      href: "tel:+2348126442953",
+      gradient: "from-green-500 to-teal-500",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Uyo, Nigeria",
       href: "#",
-      gradient: "from-blue-500 to-cyan-500"
-    }
+      gradient: "from-blue-500 to-cyan-500",
+    },
   ];
 
   const socialLinks = [
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/miracle73",
       gradient: "from-gray-600 to-gray-800",
-      username: "@yourusername"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/yourprofile",
-      gradient: "from-blue-600 to-blue-800",
-      username: "/in/yourprofile"
+      username: "@miracle73",
     },
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://twitter.com/yourusername",
+      href: "https://x.com/Nwadiaromiracl1",
       gradient: "from-sky-500 to-blue-600",
-      username: "@yourusername"
+      username: "@Nwadiaromiracl1",
     },
-    {
-      icon: MessageCircle,
-      label: "Discord",
-      href: "#",
-      gradient: "from-indigo-500 to-purple-600",
-      username: "yourname#1234"
-    }
+    // LinkedIn and Discord commented out as requested
+    // {
+    //   icon: Linkedin,
+    //   label: "LinkedIn",
+    //   href: "https://linkedin.com/in/yourprofile",
+    //   gradient: "from-blue-600 to-blue-800",
+    //   username: "/in/yourprofile"
+    // },
+    // {
+    //   icon: MessageCircle,
+    //   label: "Discord",
+    //   href: "#",
+    //   gradient: "from-indigo-500 to-purple-600",
+    //   username: "yourname#1234"
+    // }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900 relative overflow-hidden"
+    >
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
@@ -99,14 +119,20 @@ const Contact = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-full px-6 py-2 mb-6">
             <Zap className="h-4 w-4 text-cyan-400" />
-            <span className="text-cyan-400 text-sm font-medium">Let's connect</span>
+            <span className="text-cyan-400 text-sm font-medium">
+              Let's connect
+            </span>
           </div>
           <h2 className="text-5xl font-bold text-white mb-6">
-            Get In <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Touch</span>
+            Get In{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Touch
+            </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to bring your next big idea to life? Let's collaborate and create something extraordinary together.
+            Ready to bring your next big idea to life? Let's collaborate and
+            create something extraordinary together.
           </p>
         </div>
 
@@ -119,18 +145,16 @@ const Contact = () => {
                 <Send className="h-6 w-6 mr-2 text-cyan-400" />
                 Send me a message
               </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
+
+              <div className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
-                      required
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
@@ -138,14 +162,12 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Email *
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
-                      required
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
@@ -153,31 +175,27 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Subject *
                   </label>
                   <input
                     type="text"
-                    id="subject"
                     name="subject"
-                    required
                     value={formData.subject}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
                     placeholder="What's this about?"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Message *
                   </label>
                   <textarea
-                    id="message"
                     name="message"
-                    required
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
@@ -185,16 +203,22 @@ const Contact = () => {
                     placeholder="Tell me about your project..."
                   ></textarea>
                 </div>
-                
+
                 <button
-                  type="submit"
-                  disabled={isSubmitting}
+                  onClick={handleSubmit}
+                  disabled={
+                    isSubmitting ||
+                    !formData.name ||
+                    !formData.email ||
+                    !formData.subject ||
+                    !formData.message
+                  }
                   className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      <span>Sending...</span>
+                      <span>Opening Email...</span>
                     </>
                   ) : (
                     <>
@@ -203,15 +227,17 @@ const Contact = () => {
                     </>
                   )}
                 </button>
-              </form>
+              </div>
             </div>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-              
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Contact Information
+              </h3>
+
               <div className="space-y-4 mb-8">
                 {contactInfo.map((info, index) => (
                   <a
@@ -219,7 +245,9 @@ const Contact = () => {
                     href={info.href}
                     className="group flex items-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:transform hover:scale-105"
                   >
-                    <div className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r ${info.gradient} rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <info.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
@@ -234,8 +262,10 @@ const Contact = () => {
             </div>
 
             <div>
-              <h4 className="text-xl font-semibold text-white mb-6">Connect with me</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <h4 className="text-xl font-semibold text-white mb-6">
+                Connect with me
+              </h4>
+              <div className="grid grid-cols-1 gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
@@ -244,12 +274,18 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="group flex items-center p-4 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:transform hover:scale-105"
                   >
-                    <div className={`w-10 h-10 bg-gradient-to-r ${social.gradient} rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`w-10 h-10 bg-gradient-to-r ${social.gradient} rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <social.icon className="h-5 w-5 text-white" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-white">{social.label}</div>
-                      <div className="text-xs text-gray-400">{social.username}</div>
+                      <div className="text-sm font-medium text-white">
+                        {social.label}
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        {social.username}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -262,8 +298,10 @@ const Contact = () => {
                 Let's build something amazing!
               </h4>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Whether you need a full-stack application, AI-powered solution, or technical consultation, 
-                I'm here to help bring your vision to life. Let's discuss your project and create something extraordinary together.
+                Whether you need a full-stack application, AI-powered solution,
+                or technical consultation, I'm here to help bring your vision to
+                life. Let's discuss your project and create something
+                extraordinary together.
               </p>
             </div>
           </div>
