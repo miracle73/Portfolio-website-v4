@@ -1,4 +1,4 @@
-import { Code, Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
