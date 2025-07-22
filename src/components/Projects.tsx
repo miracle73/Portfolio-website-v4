@@ -6,8 +6,6 @@ import {
   Code,
   Smartphone,
   Cloud,
-  Zap,
-  Star,
 } from "lucide-react";
 
 const Projects = () => {
@@ -156,7 +154,6 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-full px-6 py-2 mb-6">
-            <Zap className="h-4 w-4 text-cyan-400" />
             <span className="text-cyan-400 text-sm font-medium">
               Client Projects
             </span>
@@ -206,13 +203,6 @@ const Projects = () => {
               ></div>
 
               <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 group-hover:border-cyan-500/30 transition-all duration-300 hover:transform hover:scale-[1.02]">
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-3 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
-                    <Star className="h-3 w-3" />
-                    <span>FEATURED</span>
-                  </div>
-                )}
-
                 <div className="relative overflow-hidden h-64">
                   <img
                     src={project.image}
@@ -220,11 +210,6 @@ const Projects = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-                  <div
-                    className={`absolute top-4 left-4 w-12 h-12 bg-gradient-to-r ${project.gradient} rounded-lg flex items-center justify-center`}
-                  >
-                    <project.icon className="h-6 w-6 text-white" />
-                  </div>
                 </div>
 
                 <div className="p-6">

@@ -1,4 +1,4 @@
-import { Mail, Code, Brain } from "lucide-react";
+import { Mail, Code } from "lucide-react";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -30,7 +30,6 @@ export default function Hero() {
 
           <div className="text-2xl sm:text-3xl text-gray-300 mb-4 space-y-2">
             <div className="flex items-center justify-center space-x-4 animate-fade-in-up delay-200">
-              <Brain className="h-8 w-8 text-cyan-400" />
               <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-semibold">
                 AI Engineer
               </span>

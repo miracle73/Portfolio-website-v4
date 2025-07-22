@@ -27,21 +27,8 @@ const Footer = () => {
             </span>
           </p>
 
-          <div className="flex items-center justify-center space-x-2 text-gray-400 mb-6">
-            <span>Crafted with</span>
-            <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-            <span>and</span>
-            <Code className="h-4 w-4 text-cyan-400" />
-            <span>by</span>
-            <span className="text-white font-semibold">Miracle Nwadiaro</span>
-          </div>
-
           <div className="pt-6 border-t border-gray-800 text-sm text-gray-500">
-            <p>
-              &copy; {currentYear} Miracle Chukwuma Nwadiaro. All rights
-              reserved. Built with React, TypeScript & Tailwind CSS.
-            </p>
-            <p className="mt-2 text-xs">🇳🇬 Proudly crafted from Uyo, Nigeria</p>
+            <p>&copy; {currentYear}</p>
           </div>
         </div>
       </div>

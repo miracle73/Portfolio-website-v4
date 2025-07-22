@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Twitter, Zap } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Github, Twitter } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -118,7 +118,6 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-full px-6 py-2 mb-6">
-            <Zap className="h-4 w-4 text-cyan-400" />
             <span className="text-cyan-400 text-sm font-medium">
               Let's connect
             </span>
@@ -294,7 +293,6 @@ const Contact = () => {
 
             <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-500/20">
               <h4 className="text-xl font-semibold text-white mb-3 flex items-center">
-                <Zap className="h-5 w-5 mr-2 text-cyan-400" />
                 Let's build something amazing!
               </h4>
               <p className="text-gray-300 text-sm leading-relaxed">

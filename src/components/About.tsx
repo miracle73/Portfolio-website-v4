@@ -1,4 +1,4 @@
-import { Code, Brain, Target, Zap, Rocket } from "lucide-react";
+import { Code, Brain, Target, Rocket } from "lucide-react";
 
 export default function About() {
   const highlights = [
@@ -46,7 +46,7 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-full px-6 py-2 mb-6">
-            <Zap className="h-4 w-4 text-cyan-400" />
+        
             <span className="text-cyan-400 text-sm font-medium">
               Get to know me
             </span>
