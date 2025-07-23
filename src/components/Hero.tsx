@@ -1,4 +1,4 @@
-import { Mail, Code } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -30,16 +30,19 @@ export default function Hero() {
 
           <div className="text-2xl sm:text-3xl text-gray-300 mb-4 space-y-2">
             <div className="flex items-center justify-center space-x-4 animate-fade-in-up delay-200">
-              <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-semibold">
-                AI Engineer
-              </span>
+              <span className="text-cyan-400  font-semibold">a</span>
+
+              <div className="flex items-center justify-center space-x-4 animate-fade-in-up delay-300">
+                {/* <Code className="h-8 w-8 text-purple-400" /> */}
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
+                  Machine Learning
+                </span>
+              </div>
+              <span className="text-cyan-400  font-semibold">and</span>
             </div>
-            <div className="flex items-center justify-center space-x-4 animate-fade-in-up delay-300">
-              <Code className="h-8 w-8 text-purple-400" />
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-semibold">
-                Machine Learning Engineer
-              </span>
-            </div>
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-semibold">
+              AI Engineer
+            </span>
           </div>
 
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
